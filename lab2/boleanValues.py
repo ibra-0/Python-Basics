@@ -36,5 +36,6 @@ if myFunction():
 else:
   print("NO!")"""
 
-x = "True"
-print(isinstance(x, str))
+'''x = "True"
+print(isinstance(x, str))'''
+

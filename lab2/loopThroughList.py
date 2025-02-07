@@ -26,7 +26,10 @@ for x in fruits:
     newlist.append(x)
 
 print(newlist)'''
-fruits = ['apple',' orange', 'kiwi', 'mango']
+
+'''fruits = ['apple',' orange', 'kiwi', 'mango']
 newlist = []
 newlist = [x for x in fruits if x != "apple"]
-print(newlist)
+print(newlist)'''
+
+newlist = [x for x in range(10)]

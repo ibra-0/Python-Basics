@@ -30,7 +30,7 @@ if "apple" in thislist:
 thislist[1:3] = ["blackcurrant", "watermelon"]
 print(thislist)'''
 
-thislist = ["apple", "banana", "cherry"]
+'''thislist = ["apple", "banana", "cherry"]
 thislist.insert(2, "watermelon")
 print(thislist)
 
@@ -41,4 +41,21 @@ print(thislist)
 thislist = ["apple", "banana", "cherry"]
 tropical = ["mango", "pineapple", "papaya"]
 thislist.extend(tropical)
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist)'''
+
+thislist = ["apple", "banana", "cherry"]
+thislist.remove("banana")
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thislist.pop(1)
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+del thislist[0]
 print(thislist)
