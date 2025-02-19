@@ -6,7 +6,7 @@
 
 print(factorial_iterative(5)) '''
 
-class car:
+class Car:
      def __init__(self, brand, model):
         self.brand = brand
         self.model = model
@@ -14,11 +14,11 @@ class car:
      def start(self):
         print("Car is starting...")
 
-class electricCar(car):  
+class ElectricCar(Car):  
     def start(self):
         print("Electric Car is starting silently...")
-car1 = car("BMW", "M5")
+car1 = Car("BMW", "M5")
 car1.start()  
 
-ev1 = electricCar("Porsche", "Taycan")
+ev1 = ElectricCar("Porsche", "Taycan")
 ev1.start()    
