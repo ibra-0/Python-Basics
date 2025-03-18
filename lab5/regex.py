@@ -7,7 +7,7 @@ print(match_a_b("abbb"))
 # 2. 
 def match_a_bb(s):
     return bool(re.fullmatch(r'a(bb|bbb)', s))
-print(match_a_bb("abbdk"))
+print(match_a_bb("abb"))
 # 3. 
 def find_lowercase_underscore(s):
     return re.findall(r'\b[a-z]+_[a-z]+\b', s)
