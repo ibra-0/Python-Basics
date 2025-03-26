@@ -4,7 +4,7 @@ import os
 
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.set_volume(1.0)  # Максимальная громкость
+pygame.mixer.music.set_volume(1.0)  
 
 WIDTH, HEIGHT = 400, 300
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -13,7 +13,6 @@ pygame.display.set_caption('Music Player')
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-# Список файлов
 music_files = ['song1.mp3', 'song2.mp3', 'song3.mp3']
 current_track_index = 0
 playing = False
@@ -52,16 +51,16 @@ while True:
             sys.exit()
         
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_p:  # Play / Pause
+            if event.key == pygame.K_p:  
                 if playing:
                     stop_music()
                 else:
                     play_music()
-            elif event.key == pygame.K_s:  # Stop
+            elif event.key == pygame.K_s:  
                 stop_music()
-            elif event.key == pygame.K_n:  # Next
+            elif event.key == pygame.K_n:  
                 next_music()
-            elif event.key == pygame.K_b:  # Previous
+            elif event.key == pygame.K_b: 
                 previous_music()
 
     font = pygame.font.SysFont(None, 30)
