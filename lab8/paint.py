@@ -1,9 +1,8 @@
 import pygame
 
-# Инициализация Pygame
 pygame.init()
 
-# Константы
+
 WIDTH, HEIGHT = 500, 400
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -11,25 +10,22 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
-# Создание окна
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Paint")
 screen.fill(WHITE)
 
-# Инструменты
 DRAW_FREE = "free"
 DRAW_RECT = "rect"
 DRAW_CIRCLE = "circle"
 ERASER = "eraser"
 
-# Начальные значения
 drawing = False
 start_pos = (0, 0)
 color = BLACK
 tool = DRAW_FREE
-radius = 10  # Размер кисти / ластика
+radius = 10 
 
-# Основной цикл
 running = True
 while running:
     for event in pygame.event.get():

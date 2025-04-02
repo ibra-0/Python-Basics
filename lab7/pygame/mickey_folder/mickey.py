@@ -35,7 +35,7 @@ while True:
     seconds = current_time.tm_sec
     minutes = current_time.tm_min
 
-    left_angle = -seconds * 6  # 6 градусов за каждую секунду
+    left_angle = -seconds * 6  
     rotated_left_hand = pygame.transform.rotate(left_hand, left_angle)
     rect_left = rotated_left_hand.get_rect(center=(WIDTH // 2, HEIGHT // 2))
     screen.blit(rotated_left_hand, rect_left.topleft)
