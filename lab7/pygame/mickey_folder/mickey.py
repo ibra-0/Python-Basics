@@ -40,11 +40,10 @@ while True:
     rect_left = rotated_left_hand.get_rect(center=(WIDTH // 2, HEIGHT // 2))
     screen.blit(rotated_left_hand, rect_left.topleft)
 
-    right_angle = -minutes * 6  
+    right_angle = -minutes * 6
     rotated_right_hand = pygame.transform.rotate(right_hand, right_angle)
     rect_right = rotated_right_hand.get_rect(center=(WIDTH // 2, HEIGHT // 2))
     screen.blit(rotated_right_hand, rect_right.topleft)
 
     pygame.display.flip()
     clock.tick(60)
-

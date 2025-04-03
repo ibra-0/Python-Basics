@@ -9,6 +9,7 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+PINK = (255, 105, 180)
 
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -47,6 +48,8 @@ while running:
                 color = GREEN
             elif event.key == pygame.K_b:
                 color = BLUE
+            elif event.key == pygame.K_p:
+                color = PINK
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             drawing = True

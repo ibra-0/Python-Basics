@@ -5,20 +5,17 @@ pygame.init()
 
 WIDTH, HEIGHT = 400, 400
 CELL_SIZE = 20
-FPS = 5  # Начальная скорость змейки
+FPS = 5  
 
-# Цвета
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
 
-# Создание окна
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 
-# Шрифт
 font = pygame.font.SysFont(None, 30)
 
 def draw_text(text, color, x, y):
