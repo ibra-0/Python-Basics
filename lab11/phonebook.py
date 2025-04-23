@@ -2,8 +2,6 @@ import psycopg2
 import json
 import csv
 
-
-# Подключение
 conn = psycopg2.connect(
     dbname="phonebook_db", 
     user="postgres", 
@@ -13,11 +11,10 @@ conn = psycopg2.connect(
 )
 cur = conn.cursor()
 
-# Загрузка данных из CSV файла через процедуру вставки
 def upload_from_csv(file_path):
     with open(file_path, 'r') as f:
         reader = csv.reader(f)
-        next(reader)  # Пропустить заголовок
+        next(reader)  
         users = []
         for row in reader:
             users.append({"username": row[0], "phone": row[1]})
@@ -25,7 +22,6 @@ def upload_from_csv(file_path):
     conn.commit()
     print("Data uploaded from CSV.")
 
-# Вставка пользователя через процедуру
 def insert_from_console():
     username = input("Enter username: ")
     phone = input("Enter phone number: ")
@@ -33,7 +29,6 @@ def insert_from_console():
     conn.commit()
     print("Data inserted from console.")
 
-# Обновление = заново вызвать insert_or_update_user
 def update_user():
     username = input("Enter existing username: ")
     new_phone = input("Enter new phone number: ")
@@ -41,7 +36,6 @@ def update_user():
     conn.commit()
     print("User phone updated.")
 
-# Поиск пользователей через функцию поиска
 def search_users():
     pattern = input("Enter search pattern: ")
     cur.execute("SELECT * FROM search_phonebook(%s)", (pattern,))
@@ -49,7 +43,16 @@ def search_users():
     for row in rows:
         print(row)
 
-# Пагинация через функцию
+def insert_multiple_users_from_console():
+    users_input = input("Enter users (name,phone) separated by comma, e.g. 'John,1234567890,Alice,9876543210': ")
+    users_list = users_input.split(',')
+    
+    users_array = [f"{users_list[i]},{users_list[i+1]}" for i in range(0, len(users_list), 2)]
+    
+    cur.execute("CALL insert_multiple_users(%s)", (users_array,))
+    print("Users inserted or updated.")
+
+
 def get_users_page():
     limit_val = int(input("Enter limit: "))
     offset_val = int(input("Enter offset: "))
@@ -58,14 +61,12 @@ def get_users_page():
     for row in rows:
         print(row)
 
-# Удаление через процедуру
 def delete_user():
     value = input("Enter username or phone to delete: ")
     cur.execute("CALL delete_user(%s)", (value,))
     conn.commit()
     print("User deleted.")
 
-# Главное меню
 def main():
     while True:
         print("\n1. Upload from CSV")
@@ -74,7 +75,8 @@ def main():
         print("4. Search users")
         print("5. Get users page")
         print("6. Delete user")
-        print("7. Exit")
+        print("7. Insert multiple users")
+        print("8. Exit")
         choice = input("Choose an action: ")
 
         if choice == '1':
@@ -89,8 +91,10 @@ def main():
             get_users_page()
         elif choice == '6':
             delete_user()
-        elif choice == '7':
+        elif choice == '8':
             break
+        elif choice == '7':
+            insert_multiple_users_from_console()  
         else:
             print("Invalid choice. Please select again.")
 
