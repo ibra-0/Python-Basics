@@ -50,6 +50,7 @@ def insert_multiple_users_from_console():
     users_array = [f"{users_list[i]},{users_list[i+1]}" for i in range(0, len(users_list), 2)]
     
     cur.execute("CALL insert_multiple_users(%s)", (users_array,))
+    conn.commit()
     print("Users inserted or updated.")
 
 
