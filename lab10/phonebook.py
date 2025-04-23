@@ -20,7 +20,7 @@ cur.execute('''
 conn.commit()
 
 def insert_from_csv():
-    with open('data.csv', 'r') as f:
+    with open('contacts.csv', 'r') as f:
         reader = csv.reader(f)
         next(reader)  
         for row in reader:
